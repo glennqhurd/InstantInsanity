@@ -23,6 +23,25 @@ ORIENTATION_LIST = [[1, 2, 4, 3], [2, 4, 3, 1], [4, 3, 1, 2], [3, 1, 2, 4], [5, 
                     [4, 5, 1, 0], [5, 1, 0, 4], [1, 5, 4, 0], [5, 4, 0, 1], [4, 0, 1, 5], [0, 1, 5, 4]]
 
 
+def initialize_matrix():
+    result = []
+    for i in range(4):
+        matrix_entry = []
+        if i == 0:
+            matrix_entry = [1, 0, 0, 0]
+        elif i == 1:
+            matrix_entry = [0, 1, 0, 0]
+        elif i == 2:
+            matrix_entry = [0, 0, 1, 0]
+        elif i == 3:
+            matrix_entry = [0, 0, 0, 1]
+        for j in range(4):
+            for k in range(4):
+                matrix_entry += (COLORS[CUBES[i][ORIENTATION_LIST[j + (i * 4)][k]]])
+            result.append(matrix_entry)
+        print(result)
+
+
 def show_colors(orientation, cube):
     result = ""
     for i in ORIENTATION_LIST[orientation]:
@@ -63,3 +82,4 @@ if __name__ == '__main__':
     row = generate_row(0, faces)
     display_row(row)
     check_for_3(matrix)
+    initialize_matrix()
