@@ -28,16 +28,16 @@ def initialize_matrix():
     for i in range(4):
         matrix_entry = []
         if i == 0:
-            matrix_entry = [1, 0, 0, 0]
-        elif i == 1:
-            matrix_entry = [0, 1, 0, 0]
-        elif i == 2:
-            matrix_entry = [0, 0, 1, 0]
-        elif i == 3:
-            matrix_entry = [0, 0, 0, 1]
-        for j in range(4):
+            matrix_entry += [1, 0, 0, 0]
+        if i == 1:
+            matrix_entry += [0, 1, 0, 0]
+        if i == 2:
+            matrix_entry += [0, 0, 1, 0]
+        if i == 3:
+            matrix_entry += [0, 0, 0, 1]
+        for j in range(24):
             for k in range(4):
-                matrix_entry += (COLORS[CUBES[i][ORIENTATION_LIST[j + (i * 4)][k]]])
+                matrix_entry += (COLORS[CUBES[i][ORIENTATION_LIST[j][k]]])
             result.append(matrix_entry)
         print(result)
 
